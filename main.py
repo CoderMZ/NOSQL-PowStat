@@ -5,8 +5,7 @@ import time
 import os
 import pymongo.errors
 
-cs = "mongodb+srv://mongoadmin:[password]@cluster0.kufmp0l.mongodb.net/?retryWrites=true&w=majority"
-# cs = os.environ.get('connectionString')
+cs = os.environ.get('connectionString')
 
 client = MongoClient(cs)
 
@@ -14,10 +13,7 @@ client = MongoClient(cs)
 db = client["powstat"]
 col = db["stat"]
 
-print(col.find_one())
-#print(col.count_documents({}))
 
-"""
 while True:
 
   
@@ -32,4 +28,3 @@ while True:
 
     except pymongo.errors.ServerSelectionTimeoutError:
         print("Connection to MongoDB server lost. Retrying...")
-        """
